@@ -18,22 +18,22 @@ Validation.prototype.validate = function() {
     return this.fn.apply(this.context, this.elements);
 };
 
-var fieldOneValidation = function(input) {
+var fieldOneSizeValidation = function(input) {
     return input.value.length > 10;
 };
 
-var fieldTwoValidation = function(input) {
+var fieldTwoUpperCaseValidation = function(input) {
     return input.value === input.value.toUpperCase();
 };
 
-var fieldThreeValidation = function(input2, input3) {
+var fieldTwoAndThreeOppositesValidation = function(input2, input3) {
     return input2.value === input3.value.split("").reverse().join("");
 };
 
 var validatations = [
-    new Validation(this, fieldOneValidation, "input1", "Input1 length smaller than 10"),
-    new Validation(this, fieldTwoValidation, "input2", "Input2 must be upper case"),
-    new Validation(this, fieldThreeValidation, ["input3", "input2"], "Input3 and Input2 must be reversed")
+    new Validation(this, fieldOneSizeValidation, "input1", "Input1 length smaller than 10"),
+    new Validation(this, fieldTwoUpperCaseValidation, "input2", "Input2 must be upper case"),
+    new Validation(this, fieldTwoAndThreeOppositesValidation, ["input3", "input2"], "Input3 and Input2 must be reversed")
 ];
 
 function onValidate() {
